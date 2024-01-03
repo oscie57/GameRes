@@ -4,7 +4,7 @@ using System.Text.Json;
 
 internal class Program
 {
-    static readonly string version = "v1.0";
+    static readonly string version = "v1.1";
     static readonly string copyrightYear = DateTime.Now.Year.ToString();
     static readonly string buildDate = "November 21th, 2023";
     static readonly string buildTime = "3:59 PM";
@@ -88,7 +88,7 @@ internal class Program
         Console.WriteLine("Hiding taskbar...");
         Taskbar.Hide();
 
-        Console.WriteLine("Launching Spice2x, enjoy your game!");
+        Console.WriteLine("Launching... Enjoy your game!");
         Process spice = new();
         spice.StartInfo.FileName = gamePath;
         spice.StartInfo.UseShellExecute = true;
