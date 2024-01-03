@@ -180,7 +180,7 @@ internal class Program
         PrintHeader();
         Console.WriteLine("Setup - Add game\n");
         string TempName = AskForString(1, "What is the title of the game? (i.e 'REFLEC BEAT VOLZZA 2')", (_)=>true);
-        string TempPath = AskForString(2, "What is the path to the game? (i.e 'C:\\path\\to\\spice.exe')", Path.Exists);
+        string TempPath = AskForString(2, "What is the path to the game? (i.e 'C:\\path\\to\\spice.exe')", (x) => Path.Exists(x.Trim('"')));
         string TempCode = AskForString(3, "What is the game code? (i.e 'SDED' or 'MBR')", (x) =>
         {
             return x.Length is 3 or 4;
