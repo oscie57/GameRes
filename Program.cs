@@ -4,7 +4,7 @@ using System.Text.Json;
 
 internal class Program
 {
-    static readonly string version = "v1.1";
+    static readonly string version = "v1.0.2";
     static readonly string copyrightYear = DateTime.Now.Year.ToString();
     static readonly string buildDate = "November 21th, 2023";
     static readonly string buildTime = "3:59 PM";
@@ -202,7 +202,7 @@ internal class Program
         r.Data.Add(new Game
         {
             Name = TempName,
-            Path = TempPath,
+            Path = TempPath.Trim('"'),
             Code = TempCode,
             Version = TempVersion,
             Info = TempInfo,
