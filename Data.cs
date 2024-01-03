@@ -53,7 +53,5 @@ namespace GameRes
         public bool Taskbar { get; set; }
         [JsonPropertyName("resolution")]
         public string Resolution { get; set; }
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
     }
 }

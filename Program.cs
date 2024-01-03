@@ -55,7 +55,7 @@ internal class Program
         Console.WriteLine(PrmaryScreenResolution.ChangeResolution(resX, resY, r.Default.Rotation));
     }
 
-    static void LaunchGame(string gamePath, int rotationValue, bool taskbar, string resolution, string type)
+    static void LaunchGame(string gamePath, int rotationValue, bool taskbar, string resolution)
     {
         // Width, Height, Rotation
         int resX;
@@ -187,11 +187,7 @@ internal class Program
         });
         string TempVersion = AskForString(4, "What is the game version? (i.e '7.10.01' or '2023092000')", (_) => true);
         string TempInfo = AskForString(5, "What is the game info? (i.e 'English Omnimix')", (_) => true);
-        string TempType = AskForString(6, "What is the game type? ('spice', 'segatools', or 'divaloader')", (x) => {
-            List<string> allowed = ["spice", "segatools", "divaloader"];
-            return allowed.Contains(x);
-        });
-        string TempNetwork = AskForString(7, "What network does the game run on? (i.e 'CGDev', 'BemaniSAC', 'None')", (_)=>true);
+        string TempNetwork = AskForString(6, "What network does the game run on? (i.e 'CGDev', 'BemaniSAC', 'None')", (_)=>true);
         int TempRotation = AskForInt(7, "What is the rotation value? (i.e '0', '90', '180', '270')");
         string TempResolution = AskForString(8, "What is the resolution? ('native', '720p', '768p', or '1080p')", (x) => {
             List<string> allowed = ["720p", "768p", "1080p", "native"];
@@ -206,7 +202,6 @@ internal class Program
             Code = TempCode,
             Version = TempVersion,
             Info = TempInfo,
-            Type = TempType,
             Network = TempNetwork,
             Rotation = TempRotation,
             Resolution = TempResolution,
@@ -316,7 +311,7 @@ internal class Program
             default:
                 if (int.TryParse(input, out var i))
                 {
-                    LaunchGame(r.Data[i].Path, r.Data[i].Rotation, r.Data[i].Taskbar, r.Data[i].Resolution, r.Data[i].Type);
+                    LaunchGame(r.Data[i].Path, r.Data[i].Rotation, r.Data[i].Taskbar, r.Data[i].Resolution);
                     Main(args);
                 }
                 else
